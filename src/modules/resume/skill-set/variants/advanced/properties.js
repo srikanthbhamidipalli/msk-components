@@ -23,7 +23,7 @@ const properties = {
         id: '3da7f2ce-4ed6-4de7-bd58-f42c51008f8d',
         type: propertyTypes.OBJECT,
         required: true,
-        name: {
+        subname: {
           name: 'Skill',
           type: propertyTypes.STRING,
           value: 'Skill 1',
@@ -41,7 +41,7 @@ const properties = {
         id: 'e7282751-dd0d-4a5d-bfb4-b2b2018faec8',
         type: propertyTypes.OBJECT,
         required: true,
-        name: {
+        subname: {
           name: 'Skill',
           type: propertyTypes.STRING,
           value: 'Skill 2',
@@ -59,7 +59,7 @@ const properties = {
         id: '5621be5c-b4bf-4fc8-8459-5574a7220e27',
         type: propertyTypes.OBJECT,
         required: true,
-        name: {
+        subname: {
           name: 'Skill',
           type: propertyTypes.STRING,
           value: 'Skill 3',

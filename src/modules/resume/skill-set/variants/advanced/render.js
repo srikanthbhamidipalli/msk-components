@@ -60,15 +60,15 @@ const Basic = ({ theme, headlineText, skills }) => {
             <div style={styles.skillContainer}>
               <div
                 style={{
-                  ...styles.skill,
-                  backgroundColor: theme.value.color,
-                  color: theme.value.contrast
-                }}
-              >
-                {skill.name.value}
-              </div>
-              <br />
-              {getStars(skill.rating.value)}
+                    ...styles.skill,
+                    backgroundColor: theme.value.color,
+                    color: theme.value.contrast
+                }} >{skill.subname.value}
+                </div>
+                <br />
+                {
+                getStars(skill.rating.value)
+                }
             </div>
           )
         })}
