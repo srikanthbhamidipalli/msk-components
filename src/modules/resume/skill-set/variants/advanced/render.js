@@ -1,5 +1,9 @@
-import {FullStar,HalfStar,EmptyStar} from '../../../../../../public/Base64Icons';
-import React from 'react';
+import {
+  FullStar,
+  HalfStar,
+  EmptyStar
+} from '../../../../../../public/Base64Icons'
+import React from 'react'
 
 const useStyles = (theme) => ({
   root: {
@@ -9,7 +13,7 @@ const useStyles = (theme) => ({
     margin: 0
   },
   skillContainer: {
-      display: 'inline-block'
+    display: 'inline-block'
   },
   skill: {
     margin: 5,
@@ -22,65 +26,55 @@ const useStyles = (theme) => ({
     display: 'inline-block'
   },
   ratingIcon: {
-      height: 13
+    height: 13
   },
   ratingContainer: {
-      paddingLeft: 5
+    paddingLeft: 5
   }
 })
 
 const getStars = (rating) => {
-    let stars = [];
-    const styles = useStyles();
-    for(let i=0;i<Math.floor(rating);i++){
-        stars.push(<img style={styles.ratingIcon} src={FullStar}/>);
-    }
-    rating = rating-Math.floor(rating);
-    if(rating)
-        stars.push(<img style={styles.ratingIcon} src={HalfStar}/>);
-    while(stars.length<5){
-        stars.push(<img style={styles.ratingIcon} src={EmptyStar}/>);
-    }
-    return <div style={styles.ratingContainer}>
-        {stars}
-    </div>
+  let stars = []
+  const styles = useStyles()
+  for (let i = 0; i < Math.floor(rating); i++) {
+    stars.push(<img style={styles.ratingIcon} src={FullStar} />)
+  }
+  rating = rating - Math.floor(rating)
+  if (rating) stars.push(<img style={styles.ratingIcon} src={HalfStar} />)
+  while (stars.length < 5) {
+    stars.push(<img style={styles.ratingIcon} src={EmptyStar} />)
+  }
+  return <div style={styles.ratingContainer}>{stars}</div>
 }
 
-const Basic = (
-  {
-    theme,
-    headlineText,
-    skills
-  }
-) => {
+const Basic = ({ theme, headlineText, skills }) => {
   const styles = useStyles()
   return (
     <div style={styles.root}>
-      <h1 style={styles.headlineText} >{headlineText.value}</h1>
+      <h1 style={styles.headlineText}>{headlineText.value}</h1>
       <hr />
       <br />
       <div>
-        {
-          skills.value.map((skill) => {
-            return <div style={styles.skillContainer}>
-                <div
+        {skills.value.map((skill) => {
+          return (
+            <div style={styles.skillContainer}>
+              <div
                 style={{
-                    ...styles.skill,
-                    backgroundColor: theme.value.color,
-                    color: theme.value.contrast
-                }} >{skill.name.value}
-                </div>
-                <br />
-                {
-                getStars(skill.rating.value)
-                }
+                  ...styles.skill,
+                  backgroundColor: theme.value.color,
+                  color: theme.value.contrast
+                }}
+              >
+                {skill.name.value}
+              </div>
+              <br />
+              {getStars(skill.rating.value)}
             </div>
-          })
-        }
+          )
+        })}
       </div>
+    </div>
+  )
+}
 
-    </div >
-  );
-};
-
-export default Basic;
+export default Basic
